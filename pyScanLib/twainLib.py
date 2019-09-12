@@ -1,6 +1,6 @@
 import twain
-import Image
-from StringIO import StringIO
+from PIL import Image
+from io import StringIO
 
 #======================================================================
 #	Name:	    twainLib
