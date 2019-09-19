@@ -1,6 +1,6 @@
 import twain
-import Image
-from StringIO import StringIO
+from PIL import Image
+from io import BytesIO
 
 #======================================================================
 #	Name:	    twainLib
@@ -17,6 +17,7 @@ class twainLib(object):
     def __init__(self):
         self.scanner = None
         self.dpi = 200  # Define for use in pixeltoInch function
+        self.lastError = None
 
     def getScanners(self):
         """
@@ -120,8 +121,9 @@ class twainLib(object):
             self.handle = self.scanner.XferImageNatively()[0]
             image = twain.DIBToBMFile(self.handle)
             twain.GlobalHandleFree(self.handle)
-            return Image.open(StringIO(image))
-        except:
+            return Image.open(BytesIO(image))
+        except Exception as e:
+            self.lastError = str(e)
             return False
 
     def closeScanner(self):
