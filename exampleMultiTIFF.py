@@ -2,12 +2,13 @@ from pyScanLib import pyScanLib
 
 ls = pyScanLib() # load scanner library
 devices = ls.getScanners()
+print(devices)
 ls.setScanner(devices[0])
 
 ls.setDPI(300)
     
 # A4 Example
-ls.setScanArea(width=8.26,height=11.693) # (left,top,width,height) in inches
+#ls.setScanArea(width=8.26,height=11.693) # (left,top,width,height) in inches
 
 ls.setPixelType("color") # bw/gray/color
 

@@ -20,6 +20,7 @@ Functions:
 * getScannerSize() - Return scanner size eg. (left, top, right, bottom)
 * setPixelType("color") - bw (Black & White), gray and color
 * scan() - Start Scanning
+* multiScan() - Scan multiple pages.
 * closeScanner() - Unselect selected scanner
 * close() - Destory connected API Class
 
